@@ -1,0 +1,25 @@
+##Author: Deepen Sharma(u3234674)
+#Assignment 1 PartA_1
+#4/08/2022
+
+
+preferences = []
+d = {"yes": True, "no": False}
+
+# filling up preferences
+preferences.append(d[input("Is anyone in your party a vegetarian(yes/no)? ")])
+preferences.append(d[input("Is anyone in your party a vegan(yes/no)? ")])
+preferences.append(d[input("Is anyone in your party gluten-free(yes/no)? ")])
+
+restaurants = {  # initialize a dictionary of all restaurants
+    "Joe's Gourmet Burgers": [False, False, False],
+    "Main Street Pizza Company": [True, False, True],
+    "Corner Cafe": [True, True, True],
+    "Mama's Fine Italian": [True, False, False],
+    "The Chef's Kitchen": [True, True, True]
+}
+print("------------------------------------------------")
+print("Here are your restaurant choices:")
+for restaurant, peculiarities in restaurants.items():
+    if all(map(lambda x: x[0] == x[1] or not x[1], zip(peculiarities, preferences))):
+        print(restaurant)
